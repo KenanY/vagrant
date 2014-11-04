@@ -45,7 +45,7 @@ php -f /vagrant/cron/index.php
 ```
 
 The website should be available at http://localhost:8181/
-MySQL at localhost:8002 default database name is `destiny_gg_dev` (if you get a handshake error when trying to connect, the mysql needs to be unbound)
+MySQL at localhost:8002 default database name is `destiny_gg_dev`
 
 You can login using http://localhost:8181/impersonate?userId=1
 
