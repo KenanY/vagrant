@@ -23,26 +23,34 @@ Download the latest vagrant [www.vagrantup.com](https://www.vagrantup.com/downlo
 Clone the [github.com/destinygg/website](https://github.com/destinygg/website)
 
 ```shell
-git clone git@github.com:destinygg/website.git
+mkdir ./destinygg
+cd  ./destinygg
+git clone git@github.com:destinygg/website.git .
 ```
 
 Clone the vagrant repo into the website folder
 
 ```shell
-git clone git@github.com:destinygg/vagrant.git ./vagrant
+mkdir ./vagrant
+cd ./vagrant
+git clone git@github.com:destinygg/vagrant.git .
 ```
-
-Clone this repo into the same folder as the destiny.gg repo.
 
 Copy the `config.local.php` into your destiny.gg/config/ folder (if you do not already have one)
 Take note of the ports and such...
 
-Open `cmd` in the destiny.gg folder.
+```shell
+cp config.local.php ../config/config.local.php
+```
+
+Start vagrant
 
 ```shell
 vagrant up
 vagrant ssh
 ```
+
+That should be it for the install...
 
 Optionally, you want to load the latest content (tweets, youtubes etc..)
 
