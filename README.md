@@ -23,6 +23,12 @@ Download the latest vagrant [www.vagrantup.com](https://www.vagrantup.com/downlo
 Clone the [github.com/destinygg/website](https://github.com/destinygg/website)
 
 ```shell
+git clone git@github.com:destinygg/website.git
+```
+
+Clone the vagrant repo into the website folder
+
+```shell
 git clone git@github.com:destinygg/vagrant.git ./vagrant
 ```
 
