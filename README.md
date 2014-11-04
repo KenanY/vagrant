@@ -5,6 +5,8 @@ Note: This is not for production, the quality of this repo is very basic...
 
 This VM takes the following IP `192.168.20.20` and the following ports `8181`, `8182`, `6379`, `8002`
 
+These value van be changed in the `Vagrantfile` but changes to the rest of the setup code will need to follow.
+
 # What this does NOT do
 
 You cannot BUILD the website from within the vagrant VM.
@@ -19,6 +21,10 @@ This does not build the chat engine.
 Download the latest vagrant [www.vagrantup.com](https://www.vagrantup.com/downloads.html)
 
 Clone the [github.com/destinygg/website](https://github.com/destinygg/website)
+
+```shell
+git clone git@github.com:destinygg/vagrant.git ./vagrant
+```
 
 Clone this repo into the same folder as the destiny.gg repo.
 
