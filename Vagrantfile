@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-
-  config.vm.box = 'precise64'
-  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+  
+  # Ubuntu 14.04 x64 with Puppet 3.7.1
+  config.vm.box = 'puppetlabs/ubuntu-14.04-64-puppet'
 
   config.vm.network 'private_network', ip: '192.168.20.20'
   config.vm.network :forwarded_port, guest: 81, host: 8181    #nginx-website
@@ -14,13 +14,21 @@ Vagrant.configure('2') do |config|
 
   config.vm.synced_folder '../', '/vagrant'
   config.vm.provision 'shell', path: 'init.sh'
+  
+  # Box specs
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 2
 
-  config.vm.provision :puppet do |puppet|
+    # NPM install requires symlinks to be created in shared folder 
+    # Note: On Windows this requires 'vagrant up' to be run as Administrator OhKrappa
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  end
+
+  # Run puppet build, using modules prepared with init.sh
+  config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = 'puppet/manifests'
-    puppet.module_path    = 'puppet/modules'
-    puppet.options        = '--verbose --debug'
   end
 
   config.vm.provision 'shell', inline: 'service nginx restart'
-
 end
