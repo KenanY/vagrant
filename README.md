@@ -46,6 +46,7 @@ cp config.local.php ../config/config.local.php
 ```
 
 Start vagrant
+Note: If you are on windows this requires Administrator priviledges, see Vagrantfile for details.
 
 ```shell
 vagrant up
