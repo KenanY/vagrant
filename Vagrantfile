@@ -5,6 +5,7 @@ Vagrant.configure('2') do |config|
   
   # Ubuntu 14.04 x64 with Puppet 3.7.1
   config.vm.box = 'puppetlabs/ubuntu-14.04-64-puppet'
+  config.vm.box_version = '1.0.1'
 
   config.vm.network 'private_network', ip: '192.168.20.20'
   config.vm.network :forwarded_port, guest: 81, host: 8181    #nginx-website
