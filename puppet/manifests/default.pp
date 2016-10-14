@@ -92,7 +92,7 @@ class php54 {
     owner   => root,
     group   => root,
     mode    => 664,
-    before => [File ['/etc/php5/fpm/pool.d/www.conf'], File ['/etc/php5/cli/pool.d/www.conf']]
+    before => [File['/etc/php5/fpm/pool.d/www.conf'], File['/etc/php5/cli/pool.d/www.conf']]
   }
 
   file { '/etc/php5/fpm/pool.d/www.conf':
