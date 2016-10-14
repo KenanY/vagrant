@@ -32,7 +32,7 @@ class nginx {
   file { '/etc/nginx/sites-available/php-fpm':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/vhost',
     require => Package['nginx'],
     notify  => Service['nginx'],
@@ -81,7 +81,7 @@ class php54 {
   file { '/etc/php5/fpm/conf.d/custom.ini':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/custom.ini',
     notify  => Service['php5-fpm'],
     require => Package['php5-fpm'],
@@ -91,14 +91,14 @@ class php54 {
     ensure => directory,
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     before => [File ['/etc/php5/fpm/pool.d/www.conf'], File ['/etc/php5/cli/pool.d/www.conf']]
   }
 
   file { '/etc/php5/fpm/pool.d/www.conf':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/www.conf',
     notify  => Service['php5-fpm'],
     require => Package['php5-fpm'],
@@ -107,7 +107,7 @@ class php54 {
   file { '/etc/php5/cli/conf.d/custom.ini':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/custom.ini',
     notify  => Service['php5-fpm'],
     require => Package['php5-fpm'],
@@ -116,7 +116,7 @@ class php54 {
   file { '/etc/php5/cli/pool.d/www.conf':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/www.conf',
     notify  => Service['php5-fpm'],
     require => Package['php5-fpm'],
@@ -138,7 +138,7 @@ class phpredis {
   file { '/etc/php5/fpm/conf.d/redis.ini':
     owner   => root,
     group   => root,
-    mode    => 664,
+    mode    => '0664',
     source  => '/vagrant/vagrant/puppet/files/redis.ini',
     require => Exec['install_redis'],
     notify  => Service['php5-fpm'],
