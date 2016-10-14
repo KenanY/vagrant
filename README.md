@@ -68,5 +68,5 @@ If you want to run the grunt build again
 
 ```shell
 cd /vagrant
-grunt build
+grunt
 ```

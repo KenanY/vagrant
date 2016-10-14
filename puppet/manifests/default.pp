@@ -189,7 +189,7 @@ class nodejs_build {
     cwd => "/vagrant"
   }
   exec { 'grunt_build':
-    command => "grunt build",
+    command => "grunt",
     cwd => "/vagrant",
     require => Exec["npm_install"],
   }
